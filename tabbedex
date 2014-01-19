@@ -537,12 +537,12 @@ sub register_keysyms {
     my ($self, $tab) = @_;
     if (!$self->{no_default_keys}) {
         $tab //= $self;
-        $tab->parse_keysym('Shift-Left', 'perl:tabbedex:prev_tab');
-        $tab->parse_keysym('Shift-Right', 'perl:tabbedex:next_tab');
-        $tab->parse_keysym('Shift-Down', 'perl:tabbedex:new_tab');
-        $tab->parse_keysym('Shift-Up', 'perl:tabbedex:rename_tab');
-        $tab->parse_keysym('Control-Left', 'perl:tabbedex:move_tab_left');
-        $tab->parse_keysym('Control-Right', 'perl:tabbedex:move_tab_right');
+        $tab->parse_keysym('Meta-Left', 'perl:tabbedex:prev_tab');
+        $tab->parse_keysym('Meta-Right', 'perl:tabbedex:next_tab');
+        $tab->parse_keysym('Meta-Down', 'perl:tabbedex:new_tab');
+        $tab->parse_keysym('Meta-Up', 'perl:tabbedex:rename_tab');
+	#$tab->parse_keysym('Control-Left', 'perl:tabbedex:move_tab_left');
+	#$tab->parse_keysym('Control-Right', 'perl:tabbedex:move_tab_right');
         $tab->parse_keysym('Meta-F1', 'perl:tabbedex:goto_tab_1');
         $tab->parse_keysym('Meta-F2', 'perl:tabbedex:goto_tab_2');
         $tab->parse_keysym('Meta-F3', 'perl:tabbedex:goto_tab_3');
