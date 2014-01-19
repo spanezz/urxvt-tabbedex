@@ -833,23 +833,6 @@ sub rename_tab {
 }
 
 
-# printf "\033]777;tabbedx;set_tab_name;new name\007"
-sub tab_osc_seq_perl {
-    my ($self, $tab, $osc) = @_;
-
-    if ($osc =~ /^tabbedx;set_tab_name;(.*)$/) {
-        if ($self->{is_inputting_name}) {
-            $tab->{old_name} = $1;
-        } else {
-            $tab->{name} = $1;
-        }
-        $self->update_autohide (1);
-        $self->refresh;
-        1;
-    }
-}
-
-
 package urxvt::ext::tabbedex::tab;
 
 # helper extension implementing the subwindows of a tabbed terminal.
@@ -857,7 +840,7 @@ package urxvt::ext::tabbedex::tab;
 
 {
    for my $hook ( qw(start destroy user_command property_notify
-                     add_lines bell osc_seq_perl) ) {
+                     add_lines bell) ) {
       eval qq{
          sub on_$hook {
             my \$parent = \$_[0]{term}{parent}
